@@ -125,7 +125,7 @@ app.get('/api/shelf', async (req, res) => {
 
 app.delete('/api/shelf/:id', async (req, res) => {
   try {
-    await Book.deleteOne({
+    await Shelf.deleteOne({
       _id: req.params.id
     });
     res.sendStatus(200);
