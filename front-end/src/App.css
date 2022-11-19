@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #faf0e6;
+  padding-bottom: 20px;
 }
 
 .App-logo {
@@ -36,3 +38,61 @@
     transform: rotate(360deg);
   }
 }
+
+#displayDiv {
+    background-color: #faf0e6 !important;
+}
+
+#libraryDiv {
+    width: 40%;
+    float: left;
+    padding: 20px;
+    text-align: center;
+
+}  
+
+#libraryDiv h2 {
+  font-family: "Papyrus", Times, serif;
+  color: #880808;
+}
+
+h2 {
+  font-family: "Papyrus", Times, serif;
+  color: #880808;
+}
+
+h4 {
+  font-family: "Times New Roman", Times, serif;
+  color: #6E260E;
+}
+
+#bookshelfDiv {
+    width: 40%;
+    float: left;
+    padding: 20px;
+    text-align: center;
+    font-family: "Papyrus", Times, serif;
+    color: #880808;
+}  
+
+#bookHeader {
+    background-image: url("https://www.mainejewish.org/wp-content/uploads/2017/07/Books-Banner.jpg");
+    background-size: cover;
+    width: 100%;
+}
+
+#pageTitle {
+  padding: 60px;
+  text-align: center;
+  vertical-align: middle;
+  font-family: "Papyrus", Times, serif;
+  color: #880808;
+  font-size: 50px;
+}
+
+label {
+  color: #6E260E;
+  padding: 5px;
+}
+
+
