@@ -120,7 +120,7 @@ function App() {
             <input type="text" value={genre} onChange={e=>setGenre(e.target.value)}></input>
           </label>
         </div>
-        <input type="submit" value="Submit" />
+        <input id= "submit" type="submit" value="Submit" />
       </form>
       </div>
       <div id="displayDiv">

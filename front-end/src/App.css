@@ -95,4 +95,11 @@ label {
   padding: 5px;
 }
 
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #E6E3D3;
+  color: white;
+}
+
 
