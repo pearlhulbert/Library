@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   background-color: #faf0e6;
-  padding-bottom: 20px;
 }
 
 .App-logo {
@@ -41,6 +40,9 @@
 
 #displayDiv {
     background-color: #faf0e6 !important;
+    display: block;
+    height: 300px;
+
 }
 
 #libraryDiv {
@@ -62,6 +64,11 @@ h2 {
 }
 
 h4 {
+  font-family: "Times New Roman", Times, serif;
+  color: #6E260E;
+}
+
+p {
   font-family: "Times New Roman", Times, serif;
   color: #6E260E;
 }
@@ -101,6 +108,15 @@ footer {
   background-color: #E6E3D3;
   color: white;
   display: block;
+  height: 60px;
 }
 
+root {
+  margin: 0px;
+  width: 100%;
+}
 
+body {
+  margin: 0px;
+  width: 100%;
+}
