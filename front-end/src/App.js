@@ -15,7 +15,7 @@ function App() {
     try {      
       const response = await axios.get("/api/books");
       console.log(response.data)
-      setLibrary(response.data);
+      setLibrary(response.data.books);
     } catch(error) {
       setError("error retrieving library: " + error);
     }
@@ -37,9 +37,9 @@ function App() {
   
   const fetchShelf = async() => {
     try {      
-      const response = await axios.get("/api/bookshelf");
+      const response = await axios.get("/api/shelf");
       console.log(response.data)
-      setbookShelf(response.data);
+      setbookShelf(response.data.shelf);
     } catch(error) {
       setError("error retrieving bookshelf: " + error);
     }
@@ -47,7 +47,7 @@ function App() {
   
   const addOneBook = async(book) => {
     try {
-      await axios.post("/api/bookshelf/" + book.id);
+      await axios.post("/api/shelf/" + book.id);
     } catch(error) {
       setError("error adding a book to shelf" + error);
     }
@@ -55,7 +55,7 @@ function App() {
   
   const removeOneBook = async(book) => {
     try {
-      await axios.delete("/api/bookshelf/" + book.id);
+      await axios.delete("/api/shelf/" + book.id);
     } catch(error) {
       setError("error removing a book from shelf" + error);
     }
@@ -128,7 +128,7 @@ function App() {
       <h2>Library</h2>
       <h4>Click book to add to shelf</h4>
       {library.map( book => (
-        <div key={book.id} className="product">
+        <div key={book._id} className="product">
           <div className="price">
             <p><i onClick={e => addToShelf(book)}>{book.title}, {book.author}, {book.genre}</i></p>
           </div>
@@ -138,9 +138,9 @@ function App() {
       <div id="bookshelfDiv">
       <h2>My Book Shelf</h2>
       {bookShelf.map( book => (
-        <div key={book.id} className="book">
+        <div key={book._id} className="book">
           <div className="individualBookDiv">
-            <p onClick ={e => removeFromShelf(book)}>{book.name}</p>
+            <p onClick ={e => removeFromShelf(book)}>{book.title}</p>
           </div>
         </div>
       ))} 

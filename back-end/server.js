@@ -30,8 +30,10 @@ bookSchema.virtual('id')
   virtuals: true
 });
 
+const Book = mongoose.model('Book', bookSchema);
+
 const shelfSchema = new mongoose.Schema({
-    title: String
+    
 });
 
 shelfSchema.virtual('id')
@@ -42,6 +44,8 @@ shelfSchema.virtual('id')
  shelfSchema.set('toJSON', {
   virtuals: true
 });
+
+const Shelf = mongoose.model('Shelf', shelfSchema);
 
 app.get('/api/books', async (req, res) => {
   try {
@@ -95,36 +99,24 @@ app.delete('/api/books/:id', async (req, res) => {
 
 app.post('/api/shelf/:id', async (req, res) => {
     try {
-        const foundBook = await Shelf.find({
-            _id: req.params.id
-        });
-    } catch (error) {
-        console.log(error);
-        res.sendStatus(500);
-    }
-    if (foundBook) {
-        res.send({foundBook});
-        res.sendStatus(200);
-    }
-    else {
-        const book = new Book({
-        title: req.body.title,
-        author: req.body.author,
-        genre: req.body.genre
-        });
-    }
-      try {
-        await book.save();
-        res.send({shelf:book});
-      } catch (error) {
-        console.log(error);
-        res.sendStatus(500);
-      }
+    let book = await Book.find({
+      _id: req.params.id
+    });
+    const shelf = new Shelf( {
+      title: book.title
+    })
+    await shelf.save();
+    res.send({shelf:shelf})
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
 });
 
 app.get('/api/shelf', async (req, res) => {
   try {
-    let shelf = await Shelf.find();
+    const shelf = await Shelf.find();
     res.send({shelf: shelf});
   } catch (error) {
     console.log(error);
