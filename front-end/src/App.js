@@ -147,7 +147,7 @@ function App() {
       </div>
     </div>
         <footer>
-        <p>Github Repository: <a href="https://github.com/pearlhulbert/Library">https://github.com/pearlhulbert/260CreativeProjects/tree/main/dictionary</a></p>
+        <p>Github Repository: <a href="https://github.com/pearlhulbert/Library">https://github.com/pearlhulbert/Library</a></p>
         <p>By: Noelle Marshall and Pearl Hulbert</p>
     </footer>
     </div>
