@@ -33,7 +33,7 @@ bookSchema.virtual('id')
 const Book = mongoose.model('Book', bookSchema);
 
 const shelfSchema = new mongoose.Schema({
-    
+    title: String
 });
 
 shelfSchema.virtual('id')
@@ -59,11 +59,10 @@ app.get('/api/books', async (req, res) => {
 
 app.get('/api/books:id', async (req, res) => {
  try {
-    let book = await Book.find({
+    let book = await Book.findOne({
       _id: req.params.id
     });
-    res.send({book})
-    res.sendStatus(200);
+    res.send({book:book})
   } catch (error) {
     console.log(error);
     res.sendStatus(500);
@@ -99,7 +98,7 @@ app.delete('/api/books/:id', async (req, res) => {
 
 app.post('/api/shelf/:id', async (req, res) => {
     try {
-    let book = await Book.find({
+    let book = await Book.findOne({
       _id: req.params.id
     });
     const shelf = new Shelf( {
@@ -107,7 +106,6 @@ app.post('/api/shelf/:id', async (req, res) => {
     })
     await shelf.save();
     res.send({shelf:shelf})
-    res.sendStatus(200);
   } catch (error) {
     console.log(error);
     res.sendStatus(500);

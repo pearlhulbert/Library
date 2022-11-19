@@ -140,13 +140,18 @@ function App() {
       {bookShelf.map( book => (
         <div key={book._id} className="book">
           <div className="individualBookDiv">
-            <p onClick ={e => removeFromShelf(book)}>{book.title}</p>
+            <p><i onClick ={e => removeFromShelf(book)}>{book.title}</i></p>
           </div>
         </div>
       ))} 
       </div>
     </div>
+        <footer>
+        <p>Github Repository: <a href="https://github.com/pearlhulbert/Library">https://github.com/pearlhulbert/260CreativeProjects/tree/main/dictionary</a></p>
+        <p>By: Noelle Marshall and Pearl Hulbert</p>
+    </footer>
     </div>
+    
   );
 }
 
